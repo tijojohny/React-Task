@@ -4,10 +4,11 @@ export const GET_DATA_SUCESS = "[data action] confirmed data";
 export const GET_DATA_FAILED_ACTION = "[data action] failed data";
 
 export function getDataAction() {
+  console.log("1");
   return (dispatch) => {
     getData()
       .then((response) => {
-        dispatch(getDataConfirmedAction("Success"));
+        dispatch(getDataConfirmedAction(response.data));
       })
       .catch((error) => {
         dispatch(getDataFailedAction("Something went wrong"));
